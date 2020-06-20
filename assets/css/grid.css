@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+}
+* {
+	box-sizing: border-box;
+}
+.columns {
+	display: flex;
+}
+.columns.multiline {
+	flex-wrap: wrap;
+}
+.columns.centered {
+	justify-content: center;
+}
+.columns.middled {
+	align-items: center;
+	align-content: center;
+}
+.columns.top {
+	align-items: flex-start;
+	align-content: flex-start;
+}
+.columns.spread-v {
+	align-items: space-between;
+	align-content: space-between;
+}
+.columns.spread-h {
+	justify-content: space-between;
+}
+.columns.padded > .column {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.columns.marged > .column {
+	margin: 10px;
+}
+.columns > .column {
+	width: 100%;
+}
+.columns > .column.col-1 {
+	width: 8.33%;
+}
+.columns > .column.col-2 {
+	width: 16.66%;
+}
+.columns > .column.col-3 {
+	width: 25%;
+}
+.columns > .column.col-4 {
+	width: 33.33%;
+}
+.columns > .column.col-5 {
+	width: 41.66%;
+}
+.columns > .column.col-6 {
+	width: 50%;
+}
+.columns > .column.col-7 {
+	width: 58.33%;
+}
+.columns > .column.col-8 {
+	width: 66.66%;
+}
+.columns > .column.col-9 {
+	width: 75%;
+}
+.columns > .column.col-10 {
+	width: 83.33%;
+}
+.columns > .column.col-11 {
+	width: 91.66%;
+}
+.columns > .column.col-12 {
+	width: 100%;
+}

@@ -1,0 +1,428 @@
+/*
+** primary: rgba(55, 69, 172, 1);
+** primary-high: rgba(13, 37, 218, 1);
+** dark: rgba(17, 21, 51, 1);
+*/
+body {
+  font-family: 'tahoma';
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0.95) 100%), url('../img/bg.png');
+  background-position: center;
+  background-size: contain;
+}
+a {
+  display: block;
+}
+main#login {
+  min-height: 100vh;
+}
+main#login > div {
+  border: 2px solid rgba(13, 37, 218, 1);
+  box-shadow: 0 0 10px rgba(17, 21, 51, 1);
+}
+main#login > div > .brand {
+  background: rgba(17, 21, 51, 1);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+main#login > div > form {
+  padding: 20px 20px;
+}
+main#login > div > form > .form-input-login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin: 5px 0;
+}
+main#login > div > form > .form-input-login > input {
+  width: 80%;
+  padding: 7px;
+  font-size: 20px;
+  text-align: right;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  background: transparent;
+}
+main#login > div > form > .form-input-login > span {
+  padding: 7px;
+  width: 20%;
+  text-align: center;
+  background: rgba(55, 69, 172, 1);
+  color: white;
+  font-size: 25px;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+main#login > div > form > .form-input-login > input:focus {
+  border-bottom: 2px solid rgba(13, 37, 218, 1);
+}
+main#login > div > form > .form-input-login > input:focus ~ span {
+  border-bottom: 2px solid rgba(13, 37, 218, 1);
+  background: rgba(17, 21, 51, 1);
+}
+main#login > div > form > .form-input-login > button {
+  width: 100%;
+  transition: all 0.2s ease;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(17, 21, 51, 1);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+main#login > div > form > .form-input-login > button:hover,
+main#login > div > form > .form-input-login > button:active {
+  background: rgba(17, 21, 51, 1);
+  color: white;
+}
+h1, h2, h3, h4 {
+  margin: 0;
+}
+.form-input input,
+.form-input select,
+.form-input textarea,
+.form-input button {
+  border: none;
+  transition: all 0.2s ease;
+  outline: none;
+  background: transparent;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table thead tr th {
+  text-align: left;
+}
+table thead tr th,
+table tbody tr td {
+  padding: 3px;
+}
+.text-center {
+  text-align: center;
+}
+#overlay {
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  background: rgba(17, 21, 51, 0.6);
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+  z-index: 89;
+}
+#toggle-aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(17, 21, 51, 1);
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(17, 21, 51, 1);
+  z-index: 88;
+  cursor: pointer;
+}
+#toggle-aside > button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+}
+body > aside {
+  z-index: 90;
+  position: fixed;
+  background: rgba(17, 21, 51, 1);
+  border-right: 3px solid rgba(13, 37, 218, 1);
+  box-shadow: 0 0 10px rgba(17, 21, 51, 1);
+  width: 275px;
+  height: 100%;
+  top: 0;
+  left: -275px;
+}
+body > aside > .brand {
+  background: rgba(13, 37, 218, 1);
+  box-shadow: 0 0 15px black;
+  padding: 15px;
+}
+body > aside > .brand > h1 {
+  color: white;
+  font-size: 30px;
+}
+body > aside > ul {
+  list-style-type: none;
+  padding: 0 !important;
+  margin: 20px 0 !important;
+}
+ul {
+  margin: 0;
+}
+body > aside > ul > li {
+  margin: 10px 0;
+}
+body > aside > ul > li > a {
+  padding: 7px 15px;
+  font-size: 18px;
+  display: block;
+  text-decoration: none;
+  color: grey;
+  transition: all 0.2s ease;
+}
+body > aside > ul > li > a.active {
+  box-shadow: 0 0 10px black;
+  background: white;
+  color: rgba(13, 37, 218, 1);
+}
+body > aside > ul > li > a:hover {
+  box-shadow: 0 0 10px black;
+  background: white;
+  color: rgba(13, 37, 218, 1);
+}
+body > div.columns {
+  min-height: 100vh;
+}
+body > div.columns main#non-login {
+  padding: 30px 80px;
+}
+body > div.columns footer {
+  background: rgba(17, 21, 51, 1);
+  text-align: center;
+  padding: 10px;
+  color: white;
+  box-shadow: 0 0 10px rgba(17, 21, 51, 1);
+}
+.btn {
+  background: transparent;
+  text-decoration: none;
+  border: 2px solid rgba(17, 21, 51, 1);
+  padding: 5px;
+  color: rgba(17, 21, 51, 1);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  background: rgba(17, 21, 51, 1);
+  border: 2px solid rgba(17, 21, 51, 1);
+  color: white;
+  box-shadow: 0 0 10px rgba(17, 21, 51, 1);
+}
+.btn.active {
+  background: rgba(17, 21, 51, 1);
+  border: 2px solid rgba(17, 21, 51, 1);
+  color: white;
+}
+.btn.blue {
+  background: transparent;
+  border: 2px solid rgba(13, 37, 218, 1);
+  color: rgba(13, 37, 218, 1);
+}
+.btn.blue:hover {
+  background: rgba(13, 37, 218, 1);
+  border: 2px solid rgba(13, 37, 218, 1);
+  color: white;
+  box-shadow: 0 0 10px rgba(13, 37, 218, 1);
+}
+.btn.blue.active {
+  background: rgba(13, 37, 218, 1);
+  border: 2px solid rgba(13, 37, 218, 1);
+  color: white;
+}
+.btn.red {
+  background: transparent;
+  border: 2px solid rgba(237, 28, 36, 1);
+  color: rgba(237, 28, 36, 1);
+}
+.btn.red:hover {
+  background: rgba(237, 28, 36, 1);
+  border: 2px solid rgba(237, 28, 36, 1);
+  color: white;
+  box-shadow: 0 0 10px rgba(237, 28, 36, 1);
+}
+.btn.red.active {
+  background: rgba(237, 28, 36, 1);
+  border: 2px solid rgba(237, 28, 36, 1);
+  color: white;
+}
+.btn.yellow {
+  background: transparent;
+  border: 2px solid rgba(220, 225, 0, 1);
+  color: rgba(220, 225, 0, 1);
+}
+.btn.yellow:hover {
+  background: rgba(220, 225, 0, 1);
+  border: 2px solid rgba(220, 225, 0, 1);
+  color: white;
+  box-shadow: 0 0 10px rgba(220, 225, 0, 1);
+}
+.btn.yellow.active {
+  background: rgba(220, 225, 0, 1);
+  border: 2px solid rgba(220, 225, 0, 1);
+  color: white;
+}
+.btn.green {
+  background: transparent;
+  border: 2px solid rgba(0, 150, 39, 1);
+  color: rgba(0, 150, 39, 1);
+}
+.btn.green:hover {
+  background: rgba(0, 150, 39, 1);
+  border: 2px solid rgba(0, 150, 39, 1);
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 150, 39, 1);
+}
+.btn.green.active {
+  background: rgba(0, 150, 39, 1);
+  border: 2px solid rgba(0, 150, 39, 1);
+  color: white;
+}
+.form-input {
+  display: flex;
+}
+.form-input > input,
+.form-input > select,
+.form-input > textarea {
+  width: 70%;
+  display: block;
+  padding: 7px;
+  font-size: 15px;
+  flex-grow: 1;
+  border-bottom: 2px solid rgba(13, 37, 218, 1);
+}
+.form-input > input:focus,
+.form-input > select:focus,
+.form-input > textarea:focus {
+  box-shadow: 0 0 10px rgba(13, 37, 218, 1);
+  border-bottom: 2px solid rgba(13, 37, 218, 1);
+}
+.form-input > label {
+  width: 30%;
+  padding: 7px 10px;
+  flex-grow: 1;
+  font-size: 18px;
+  text-align: right;
+}
+.form-input > span {
+  padding: 7px;
+  width: 30%;
+  flex-grow: 1;
+  text-align: center;
+  background: rgba(55, 69, 172, 1);
+  color: white;
+  font-size: 25px;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+.form-input > input:focus ~ span,
+.form-input > textarea:focus ~ span {
+  border-bottom: 2px solid rgba(13, 37, 218, 1);
+  background: rgba(17, 21, 51, 1);
+}
+button {
+  outline: none;
+}
+table.table thead th {
+  border-left: 1px solid rgba(17, 21, 51, 1);
+  border-top: 1px solid rgba(17, 21, 51, 1);
+  background: rgba(17, 21, 51, 1);
+  border-bottom: 1px solid rgba(17, 21, 51, 1);
+  border-right: 1px solid rgba(17, 21, 51, 1);
+  color: white;
+}
+table.table tbody td {
+  border-left: 1px solid rgba(17, 21, 51, 1);
+  border-right: 1px solid rgba(17, 21, 51, 1);
+}
+table.table.no-border tbody tr td {
+  border-left: none;
+  border-right: none;
+}
+table.table tbody tr:nth-of-type(even) td {
+  background: rgba(230, 230, 230, 1);
+}
+table.table tbody tr:last-child td {
+  border-bottom: 1px solid rgba(17, 21, 51, 1);
+}
+table.table tbody tr:first-child td {
+  border-top: 1px solid rgba(17, 21, 51, 1);
+}
+.print-show {
+  display: none;
+}
+mark {
+  display: block;
+  width: 100%;
+  padding: 7px;
+  font-size: 18px;
+  text-align: center;
+}
+mark.red {
+  background: rgba(237, 28, 36, 1);
+  color: white;
+}
+mark.green {
+  background: rgba(0, 150, 39, 1);
+  color: white;
+}
+#dashboard > div {
+  height: 200px;
+  transition: all 0.2s ease;
+}
+#dashboard > div:hover {
+  background: grey !important;
+  color: black !important;
+  box-shadow: 0 0 10px rgba(17, 21, 51, 1);
+}
+#dashboard > div > .title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+#dashboard > div > .sub-title {
+  margin: 0;
+  font-size: 25px;
+  transition: all 0.2s ease;
+  font-weight: bold;
+}
+#dashboard > div:hover > .title {
+  margin: 0;
+  font-size: 17px;
+}
+#dashboard > div:hover > .sub-title {
+  margin: 0;
+  font-size: 30px;
+}
+#dashboard > div:nth-of-type(1) {
+  background: rgba(237, 28, 36, 1);
+}
+#dashboard > div:nth-of-type(2) {
+  background: rgba(55, 69, 172, 1);
+}
+#dashboard > div:nth-of-type(3) {
+  background: rgba(0, 150, 39, 1);
+}
+#dashboard > div:nth-of-type(4) {
+  background: rgba(220, 225, 0, 1);
+}
+#dashboard > div:nth-of-type(5) {
+  background: rgba(17, 21, 51, 1);
+}
+p {
+  margin: 0;
+}
+/*
+** primary: rgba(55, 69, 172, 1);
+** primary-high: rgba(13, 37, 218, 1);
+** dark: rgba(17, 21, 51, 1);
+** red: rgba(237, 28, 36, 1);
+** yellow: rgba(220, 225, 0, 1);
+** green: rgba(0, 150, 39, 1);
+*/
