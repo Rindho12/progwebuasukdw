@@ -17,14 +17,19 @@ defined('PATH') or exit('No direct script.');
 	<div id="overlay"></div>
 	<aside class="columns multiline top">
 		<div class="column brand">
-			<h1><span class="fa fa-money"></span> Ticketing</h1>
+			<h1><span class="fa fa-money"></span> Ramirez</h1>
 		</div>
 		<ul class="column">
+			<li><p>Umum</p></li>
 			<li><a <?= ($title == 'Dashboard') ? 'class="active"' : '' ?> href="<?= base_url('?c=dashboard') ?>"><span class="fa fa-dashboard"></span> Dashboard</a></li>
-			<li><a <?= ($title == 'Transportation' || $title == 'Transportation Type') ? 'class="active"' : '' ?> href="<?= base_url('?c=transportation') ?>"><span class="fa fa-car"></span> Transportation</a></li>
-			<li><a <?= ($title == 'Route' || $title == 'City') ? 'class="active"' : '' ?> href="<?= base_url('?c=route') ?>"><span class="fa fa-road"></span> Route</a></li>
-			<li><a <?= ($title == 'Reservation' || $title == 'Customer') ? 'class="active"' : '' ?> href="<?= base_url('?c=reservation') ?>"><span class="fa fa-ticket"></span> Reservation</a></li>
-			<li><a <?= ($title == 'Users') ? 'class="active"' : '' ?> href="<?= base_url('?c=users') ?>"><span class="fa fa-users"></span> Users</a></li>
+			<li><a <?= ($title == 'Biodata') ? 'class="active"' : '' ?> href="<?= base_url('?c=biodata') ?>"><span class="fa fa-user"></span> Biodata</a></li>
+			<li><a <?= ($title == 'Galeri') ? 'class="active"' : '' ?> href="<?= base_url('?c=galeri') ?>"><span class="fa fa-ticket"></span> Galeri</a></li>
+			<li><a <?= ($title == 'Kontak') ? 'class="active"' : '' ?> href="<?= base_url('?c=kontak') ?>"><span class="fa fa-phone"></span> Kontak</a></li>
+			<li><a <?= ($title == 'Pesan') ? 'class="active"' : '' ?> href="<?= base_url('?c=pesan') ?>"><span class="fa fa-quote-left"></span> Pesan</a></li>
+			<li><p>Anggota</p></li>
+			<li><a <?= ($title == 'Pesan') ? 'class="active"' : '' ?> href="<?= base_url('?c=pesan') ?>"><span class="fa fa-quote-left"></span> Media Sosial</a></li>
+			<li><a <?= ($title == 'Pesan') ? 'class="active"' : '' ?> href="<?= base_url('?c=pesan') ?>"><span class="fa fa-quote-left"></span> Pesan</a></li>
+			<li><a <?= ($title == 'Pesan') ? 'class="active"' : '' ?> href="<?= base_url('?c=pesan') ?>"><span class="fa fa-quote-left"></span> Pesan</a></li>
 			<li><a href="<?= base_url('?c=auth&m=logout') ?>"><span class="fa fa-sign-out"></span> Logout</a></li>
 		</ul>
 	</aside>

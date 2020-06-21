@@ -167,8 +167,17 @@ ul {
 body > aside > ul > li {
   margin: 10px 0;
 }
+body > aside > ul > li > p {
+  margin: 0;
+  padding: 0 15px;
+  font-size: 16px;
+  display: block;
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s ease;
+}
 body > aside > ul > li > a {
-  padding: 7px 15px;
+  padding: 7px 15px 7px 30px;
   font-size: 18px;
   display: block;
   text-decoration: none;
