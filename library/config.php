@@ -10,7 +10,7 @@ define('BASE_CONTROLLER', 'home');
 
 function base_url($value='')
 {
-	$base_url = 'http://localhost/project/';
+	$base_url = 'http://localhost/project_uas/';
 	return $base_url.$value;
 }
 
@@ -20,82 +20,6 @@ function redirect($value='', $type='')
 		header('Refresh:0;url='.base_url($value));
 	} else {
 		header('location:'.base_url($value));
-	}
-}
-
-function transportationType($value='')
-{
-	switch ($value) {
-		case 'a':
-			return 'Airplane';
-			break;
-		case 't':
-			return 'Train';
-			break;
-		default:
-			return 'undefined';
-			break;
-	}
-}
-
-function levelUser($value='')
-{
-	switch ($value) {
-		case '1':
-			return 'Receptionist';
-			break;
-		case '2':
-			return 'Route Manager';
-			break;
-		default:
-			return 'undefined';
-			break;
-	}
-}
-
-function genderCustomer($value='')
-{
-	switch ($value) {
-		case 'f':
-			return 'Female';
-			break;
-		case 'm':
-			return 'Male';
-			break;
-		default:
-			return 'undefined';
-			break;
-	}
-}
-
-function seatClass($value='')
-{
-	switch ($value) {
-		case 'f':
-			return 'First Class';
-			break;
-		case 'b':
-			return 'Business Class';
-			break;
-		case 'e':
-			return 'Economy Class';
-			break;
-		default:
-			return 'undefined';
-			break;
-	}
-}
-
-function ageCustomer($value='')
-{
-	$year = explode('-', $value)[0];
-	$now = date('Y');
-	if (($now - $year) < 3) {
-		return 'Infant';
-	} elseif (($now - $year) < 17) {
-		return 'Children';
-	} else {
-		return 'Adult';
 	}
 }
 
@@ -124,40 +48,40 @@ function dateIndo($value=null)
 
 		switch ($month) {
 			case '01':
-				$month = 'January';
+				$month = 'Januari';
 				break;
 			case '02':
-				$month = 'February';
+				$month = 'Februari';
 				break;
 			case '03':
-				$month = 'March';
+				$month = 'Maret';
 				break;
 			case '04':
 				$month = 'April';
 				break;
 			case '05':
-				$month = 'May';
+				$month = 'Mei';
 				break;
 			case '06':
-				$month = 'June';
+				$month = 'Juni';
 				break;
 			case '07':
-				$month = 'July';
+				$month = 'Juli';
 				break;
 			case '08':
-				$month = 'August';
+				$month = 'Agustus';
 				break;
 			case '09':
 				$month = 'September';
 				break;
 			case '10':
-				$month = 'October';
+				$month = 'Oktober';
 				break;
 			case '11':
 				$month = 'November';
 				break;
 			case '12':
-				$month = 'December';
+				$month = 'Desember';
 				break;
 			default:
 				$month = 'undefined';
