@@ -30,10 +30,11 @@ class auth extends controller
 						'type' => 'red',
 						'value' => 'NIM atau password salah.',
 					];
-					redirect('?c=auth');
+					redirect();
 				} else {
 					$record = $record->fetch_object();
 					$_SESSION['logged_in'] = [
+						'id' => $record->id_anggota,
 						'nim' => $record->nim_anggota,
 						'nama' => $record->nama_anggota,
 					];

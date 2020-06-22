@@ -21,6 +21,8 @@ class dashboard extends controller
 			];
 			redirect();
 		} else {
+			$data['jmlhPesan'] = controller::query("SELECT * FROM pesan")->num_rows;
+			$data['jmlhGaleri'] = controller::query("SELECT * FROM galeri")->num_rows;
 			controller::loadView('_header', $data);
 			controller::loadView('dashboard_v', $data);
 			controller::loadView('_footer', $data);

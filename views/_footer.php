@@ -4,7 +4,7 @@ defined('PATH') or exit('No direct script.');
 	</main>
 	<footer class="column">
 		<div>
-			&copy; 2018. Rindho Ananta Samat.<br>
+			&copy; 2018.<br>
 			All right reserved.
 		</div>
 	</footer>
