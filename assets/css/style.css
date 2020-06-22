@@ -427,6 +427,9 @@ mark.green {
 p {
   margin: 0;
 }
+.galeri_nih{
+  width: 360px;
+}
 /*
 ** primary: rgba(55, 69, 172, 1);
 ** primary-high: rgba(13, 37, 218, 1);
