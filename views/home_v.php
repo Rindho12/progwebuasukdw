@@ -308,79 +308,33 @@
                     <div class="porfolio_menu">
                         <ul class="causes_filter">
                             <li class="active" data-filter="*"><a href="">All</a></li>
-                            <li data-filter=".photo"><a href="">Photography</a></li>
+                            <li data-filter=".photography"><a href="">Photography</a></li>
                             <li data-filter=".design"><a href="">Design</a></li>
                             <li data-filter=".marketing"><a href="">Marketing</a></li>
                         </ul>
                     </div>
                     <div class="row">
                         <div class="portfolio_list_inner">
-                            <div class="col-md-4 photo marketing">
+                            <?php $i = 1 ?>
+                            <?php foreach ($recordGaleri as $no => $val): ?>
+                                <div class="col-md-4 photo <?= $val['kategori_galeri'] ?>">
                                 <div class="portfolio_item">
                                     <div class="portfolio_img">
-                                        <img src="<?= base_url() ?>assets/frontend/img/portfolio/portfolio-1.png" alt="">
+                                        <img src="<?= base_url()."uploads/".$val['path_galeri']?>" alt="">
                                     </div>
                                     <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
+                                        <a href="#"><h4><?= $val['judul_galeri'] ?></h4></a>
+                                        <h5><?= $val['kategori_galeri'] ?></h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 design">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="<?= base_url() ?>assets/frontend/img/portfolio/portfolio-2.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 photo marketing">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="<?= base_url() ?>assets/frontend/img/portfolio/portfolio-3.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 design marketing">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="<?= base_url() ?>assets/frontend/img/portfolio/portfolio-4.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 photo">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="<?= base_url() ?>assets/frontend/img/portfolio/portfolio-5.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 marketing">
-                                <div class="portfolio_item">
-                                    <div class="portfolio_img">
-                                        <img src="<?= base_url() ?>assets/frontend/img/portfolio/portfolio-6.png" alt="">
-                                    </div>
-                                    <div class="portfolio_title">
-                                        <a href="#"><h4>Dreams visualization</h4></a>
-                                        <h5>Photography</h5>
-                                    </div>
-                                </div>
-                            </div>
+
+                            <?php $i++; 
+                            if ($i == 6) {
+                                break;
+                            } ?>
+                            <?php endforeach ?>
+                            
                         </div>
                     </div>
                 </section>
