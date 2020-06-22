@@ -26,7 +26,7 @@ class galeri extends controller
 				$kategori = $_POST['kategori'];
 				$foto = $_FILES['foto']['name'];
 
-				$target_dir = "uploads/";
+				$target_dir = "./uploads/";
 				$target_file = $target_dir.$_FILES["foto"]["name"];
 				$uploadOk = 1;
 				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

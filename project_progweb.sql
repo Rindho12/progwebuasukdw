@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2020 at 01:18 PM
+-- Generation Time: Jun 22, 2020 at 07:20 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -81,8 +81,15 @@ CREATE TABLE `anggota_sosial` (
   `id_as` int(11) NOT NULL,
   `id_anggota` int(11) NOT NULL,
   `nama_sosial` varchar(20) NOT NULL,
-  `url_sosial` int(11) NOT NULL
+  `url_sosial` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `anggota_sosial`
+--
+
+INSERT INTO `anggota_sosial` (`id_as`, `id_anggota`, `nama_sosial`, `url_sosial`) VALUES
+(3, 1, 'facebook', 'asd');
 
 -- --------------------------------------------------------
 
@@ -96,6 +103,16 @@ CREATE TABLE `biodata` (
   `isi_biodata` text NOT NULL,
   `tipe_biodata` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `biodata`
+--
+
+INSERT INTO `biodata` (`id_biodata`, `judul_biodata`, `isi_biodata`, `tipe_biodata`) VALUES
+(1, 'Judul A', 'sub Judul', 'judul'),
+(2, NULL, 'SWAFOTO.jpeg', 'foto'),
+(3, NULL, 'INI ADALAH PARAGRAF', 'panjang'),
+(4, 'test', 'woi', 'pendek');
 
 -- --------------------------------------------------------
 
@@ -117,11 +134,19 @@ CREATE TABLE `galeri` (
 --
 
 CREATE TABLE `kontak` (
+  `id_kontak` int(11) NOT NULL,
   `teks_kontak` text NOT NULL,
   `alamat_kontak` text NOT NULL,
   `nomor_kontak` varchar(15) NOT NULL,
   `email_kontak` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kontak`
+--
+
+INSERT INTO `kontak` (`id_kontak`, `teks_kontak`, `alamat_kontak`, `nomor_kontak`, `email_kontak`) VALUES
+(1, 'There are many variations of passages of Lorem Ipsum available, but the et majori have suffered alteration in some form, by injected humour, Domised words which don\'t look even slightly believable. If you are going to use a pas of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.', 'Freedom Way, Jersey City, NJ 07305, USA', '', 'backpiper.com@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -185,6 +210,12 @@ ALTER TABLE `galeri`
   ADD PRIMARY KEY (`id_galeri`);
 
 --
+-- Indexes for table `kontak`
+--
+ALTER TABLE `kontak`
+  ADD PRIMARY KEY (`id_kontak`);
+
+--
 -- Indexes for table `pesan`
 --
 ALTER TABLE `pesan`
@@ -216,13 +247,13 @@ ALTER TABLE `anggota_pengalaman`
 -- AUTO_INCREMENT for table `anggota_sosial`
 --
 ALTER TABLE `anggota_sosial`
-  MODIFY `id_as` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_as` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `biodata`
 --
 ALTER TABLE `biodata`
-  MODIFY `id_biodata` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_biodata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `galeri`
@@ -231,10 +262,16 @@ ALTER TABLE `galeri`
   MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `kontak`
+--
+ALTER TABLE `kontak`
+  MODIFY `id_kontak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
