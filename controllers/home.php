@@ -35,9 +35,9 @@ class home extends controller
 			];
 			redirect('?c=home');
 		} else {
-
+			$data['recordGaleri'] = controller::select('galeri');
 			controller::loadView('home_v', $data);
 		}
-	}
+	}		
 }
 ?>
