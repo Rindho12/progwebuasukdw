@@ -56,7 +56,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt=""></a>
+                        <a class="navbar-brand" href="<?= base_url() ?>"><img src="<?= base_url() ?>assets/frontend/img/logo.png" alt=""></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -65,9 +65,7 @@
                             <li class="active"><a href="#about">ABOUT ME </a></li>
                             <li><a href="#skill">Skill</a></li>
                             <li><a href="#education">Education</a></li>
-                            <li><a href="#service">SERVICES</a></li>
                             <li><a href="#portfolio">PORTFOLIO</a></li>
-                            <li><a href="#news">News</a></li>
                             <li><a href="#contact">CONTACT</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -83,47 +81,31 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="person_img">
-                                <img src="<?= base_url() ?>assets/frontend/img/member/member-1.png" alt="">
-                                <a class="download_btn" href="#"><span>Download Resume</span></a>
+                                
+                                <?php foreach ($recordFotoBiodata as $no => $val): ?>
+                                    <img src="<?= base_url() ?>uploads/<?= $val['isi_biodata'] ?>" alt="">
+                                <?php endforeach; ?>
                             </div>
                         </div>
                         <div class="col-md-7">
                             <div class="row person_details">
-                                <h3>Hi I'm <span>Ramirez Minita</span></h3>
-                                <h4>Web Designer and Web Developer</h4>
-                                <p>My name is Bernard Shelly. I am 32 years old. Lorem ipsum dolor sit amet, consectetur ascing elits, sed do eiusmod tempor incidunt ut labore et dolore mafgna aliqua. Ut enim ad mini vniam quis nerci, tation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis autes irure dolor in reprehenderit in etrs voluptate velit esse cillum dolore eu fugiat nulla pariatur. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
-                                <div class="person_information">
-                                    <ul>
-                                        <li><a href="#">Age</a></li>
-                                        <li><a href="#">Nationality</a></li>
-                                        <li><a href="#">Address</a></li>
-                                        <li><a href="#">Phone</a></li>
-                                        <li><a href="#">Skype</a></li>
-                                        <li><a href="#">Email</a></li>
-                                        <li><a href="#">Website</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li><a href="#">24</a></li>
-                                        <li><a href="#">Citizen of United States</a></li>
-                                        <li><a href="#">23 High Hope Blvd, Some City, Some Country</a></li>
-                                        <li><a href="#">+88 01911854378</a></li>
-                                        <li><a href="#">sumon.backpiper</a></li>
-                                        <li><a href="#">backpiper.com@gmail.com</a></li>
-                                        <li><a href="www.topsmmpanel.com">www.topsmmpanel.com</a></li>
-                                    </ul>
-                                </div>
-                                <ul class="social_icon">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                </ul>
+                                <?php foreach ($recordBiodata as $no => $val): ?>
+                                    <?php if($val['tipe_biodata'] == 'judul'): ?>
+                                        <h3><?= $val['judul_biodata'] ?></h3>
+                                        <h4><?= $val['isi_biodata'] ?></h4>
+                                    <?php elseif($val['tipe_biodata'] == 'panjang'): ?>
+                                        <p><?= $val['isi_biodata'] ?></p>
+                                    <?php elseif($val['tipe_biodata'] == 'pendek'): ?>
+                                        <div class="person_information">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td><?= $val['judul_biodata'] ?></td>
+                                                    <td><?= $val['isi_biodata'] ?></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -133,86 +115,29 @@
                         <h2>My Skill</h2>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 wow fadeInUp animated">
-                            <div class="skill_text">
-                                <h4>Web development Skills</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Loren Ipsum has been the industry's standard dummy text.</p>
-                            </div>
-                            <div class="skill_item_inner">
-                                <div class="single_skill">
-                                    <h4>Wordpress</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">85</span>%</div>
-                                        </div>
-                                    </div>
+                    
+                        <?php foreach ($recordAnggota as $no => $val): ?>
+                            <?php
+			                    $skill = controller::select('anggota_keahlian', ['id_anggota' => $val['id_anggota']]);
+                            ?>
+                            <div class="col-md-4 wow fadeInUp animated">
+                                <div class="skill_text">
+                                    <h4><?= $val['nama_anggota'] ?></h4>
                                 </div>
-                                <div class="single_skill">
-                                    <h4>Php & MySQL</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">65</span>%</div>
+                                <div class="skill_item_inner">
+                                    <?php foreach ($skill as $nom => $vall): ?>
+                                        <div class="single_skill">
+                                            <h4><?= $vall['nama_keahlian'] ?></h4>
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" aria-valuenow="<?= $vall['persentase_keahlian'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                    <div class="progress_parcent"><span class="counter"><?= $vall['persentase_keahlian'] ?></span>%</div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Html & Css</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">75</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>JavaScript</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">95</span>%</div>
-                                        </div>
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 wow fadeInUp animated">
-                            <div class="skill_text">
-                                <h4>Web Design Skills</h4>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Loren Ipsum has been the industry's standard dummy text.</p>
-                            </div>
-                            <div class="skill_item_inner">
-                                <div class="single_skill">
-                                    <h4>Creative Design</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">85</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Photoshop</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">65</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Illustrator</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">75</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single_skill">
-                                    <h4>Photography</h4>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress_parcent"><span class="counter">95</span>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </section>
                 <section class="education_area pad" id="education">
@@ -220,85 +145,14 @@
                         <h2>Education</h2>
                     </div>
                     <div class="education_inner_area">
-                        <div class="education_item wow fadeInUp animated" data-line="S">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                        <div class="education_item wow fadeInUp animated" data-line="H">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                        <div class="education_item wow fadeInUp animated" data-line="C">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                        <div class="education_item wow fadeInUp animated" data-line="M">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                        <div class="education_item wow fadeInUp animated" data-line="W">
-                            <h6>2005-2007</h6>
-                            <a href="#"><h4>Secondary School</h4></a>
-                            <h5>St. Nicholas High School</h5>
-                            <p>Lorem ipsum dolor sit amets, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                        </div>
-                    </div>
-                </section>
-                <section class="service_area" id="service">
-                    <div class="main_title">
-                        <h2>SERVICES</h2>
-                    </div>
-                    <div class="service_inner row">
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-wordpress" aria-hidden="true"></i>
-                                <a href="#"><h4>Wordpress Development</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <?php foreach ($recordPengalaman as $no => $val): ?>
+                            <div class="education_item wow fadeInUp animated" data-line="<?= substr($val['nama_anggota'], 0, 1) ?>">
+                                <h6><?= $val['dari_tahun_pengalaman']."-".$val['sampai_tahun_pengalaman'] ?></h6>
+                                <a href="#"><h4><?= $val['nama_pengalaman'] ?></h4></a>
+                                <h5><?= $val['tempat_pengalaman'] ?></h5>
+                                <p><?= $val['teks_pengalaman'] ?></p>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-paint-brush" aria-hidden="true"></i>
-                                <a href="#"><h4>Creative Design</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <a href="#"><h4>Mobile Apps Development</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-maxcdn" aria-hidden="true"></i>
-                                <a href="#"><h4>Social Media Marketing</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-camera" aria-hidden="true"></i>
-                                <a href="#"><h4>Professional Photography</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service_item wow fadeIn animated">
-                                <i class="fa fa-laptop" aria-hidden="true"></i>
-                                <a href="#"><h4>Website Development</h4></a>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elits, sed do mod, tempor ets incididunt ut labore et dolore magna aliqua. Ut enim adtiesm minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </section>
                 <section class="portfolio_area pad" id="portfolio">
@@ -338,74 +192,6 @@
                         </div>
                     </div>
                 </section>
-                <section class="news_area pad" id="news">
-                    <div class="main_title">
-                        <h2>News</h2>
-                    </div>
-                    <div class="news_inner_area">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="twitter_area wow fadeInLeft animated">
-                                    <div class="w_title">
-                                        <h3><i class="fa fa-twitter"></i>Twitter</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#">@themexart:</a> Lorem ipsum dolors sit amets consectetur adipicing elit sed do eiusmod tempor incididunt ut labore.</li>
-                                        <li><a href="#">@themexart:</a> Lorem ipsum dolors sit amets consectetur adipicing elit sed do eiusmod tempor incididunt ut labore.</li>
-                                        <li><a href="#">@themexart:</a> Lorem ipsum dolors sit amets consectetur adipicing elit sed do eiusmod tempor incididunt ut labore.</li>
-                                        <li><a href="#">@themexart:</a> Lorem ipsum dolors sit amets consectetur adipicing elit sed do eiusmod tempor incididunt ut labore.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="blog_slider_area wow fadeInUp animated">
-                                    <div class="w_title">
-                                        <h3>Blog</h3>
-                                    </div>
-                                    <div class="blog_slider_inner">
-                                        <div class="item">
-                                            <img src="<?= base_url() ?>assets/frontend/img/blog/blog-1.jpg" alt="">
-                                            <a href="#"><h3>The Importance of User Experience</h3></a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>
-                                            <h5>Posted by <a href="http://rocky.obaidul.com">Rocky</a> at 04 Feb, 2017</h5>
-                                        </div>
-                                        <div class="item">
-                                            <img src="<?= base_url() ?>assets/frontend/img/blog/blog-2.jpg" alt="">
-                                            <a href="#"><h3>The Importance of User Experience</h3></a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>
-                                            <h5>Posted by <a href="http://rocky.obaidul.com">Rocky</a> at 04 Feb, 2017</h5>
-                                        </div>
-                                        <div class="item">
-                                            <img src="<?= base_url() ?>assets/frontend/img/blog/blog-3.jpg" alt="">
-                                            <a href="#"><h3>The Importance of User Experience</h3></a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>
-                                            <h5>Posted by <a href="http://rocky.obaidul.com">Rocky</a> at 04 Feb, 2017</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="instagram_area wow fadeInRight animated">
-                                    <div class="w_title">
-                                        <h3><i class="fa fa-instagram"></i>Instagram</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-1.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-2.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-3.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-4.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-5.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-6.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-7.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-8.jpg" alt=""></a></li>
-                                        <li><a href="#"><img src="<?= base_url() ?>assets/frontend/img/instagram/instagram-9.jpg" alt=""></a></li>
-                                    </ul>
-                                    <a class="follow_btn" href="#"><i class="fa fa-instagram"></i> Follow on Instagram</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
                 <section class="contact_area pad" id="contact">
                     <div class="main_title">
                         <h2>Contact Us</h2>
@@ -416,15 +202,14 @@
                                 <div class="contact_title">
                                     <h3>Contact Info</h3>
                                 </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the et majori have suffered alteration in some form, by injected humour, Domised words which don't look even slightly believable. If you are going to use a pas of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p><?= $recordKontak->teks_kontak ?></p>
                                 <div class="media">
                                     <div class="media-left">
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <div class="media-body">
                                         <h4>Address</h4>
-                                        <p>Freedom Way, Jersey City, NJ 07305, USA</p>
+                                        <p><?= $recordKontak->alamat_kontak ?></p>
                                     </div>
                                 </div>
                                 <div class="media">
@@ -432,8 +217,8 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="media-body">
-                                        <h4>Skype</h4>
-                                        <p>sumon.backpiper</p>
+                                        <h4>Phone</h4>
+                                        <p><?= $recordKontak->nomor_kontak ?></p>
                                     </div>
                                 </div>
                                 <div class="media">
@@ -442,7 +227,7 @@
                                     </div>
                                     <div class="media-body">
                                         <h4>Email</h4>
-                                        <p>backpiper.com@gmail.com</p>
+                                        <p><?= $recordKontak->email_kontak ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -498,18 +283,19 @@
         <footer class="footer_area">
             <div class="footer_inner">
                 <div class="container">
-                    <img src="img/footer-logo.png" alt="">
+                    <img src="<?= base_url() ?>assets/frontend/img/footer-logo.png" alt="">
                     <ul class="social_icon">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                        <li><a href="#"><i class="fa fa-flickr"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <?php foreach ($recordSosial as $no => $val): ?>
+                            <?php if($val['nama_sosial'] == 'facebook'): ?>
+                                <li><a href="<?= $val['url_sosial'] ?>"><i class="fa fa-facebook"></i></a></li>
+                            <?php elseif($val['nama_sosial'] == 'twitter'): ?>
+                                <li><a href="<?= $val['url_sosial'] ?>"><i class="fa fa-twitter"></i></a></li>
+                            <?php elseif($val['nama_sosial'] == 'instagram'): ?>
+                                <li><a href="<?= $val['url_sosial'] ?>"><i class="fa fa-instagram"></i></a></li>
+                            <?php else: ?>
+                                <li><a href="<?= $val['url_sosial'] ?>"><i class="fa fa-google-plus"></i></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -526,9 +312,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <li class="active"><a href="#">ABOUT ME </a></li>
                             <li><a href="#">Skill</a></li>
                             <li><a href="#">Education</a></li>
-                            <li><a href="#">SERVICES</a></li>
                             <li><a href="#">PORTFOLIO</a></li>
-                            <li><a href="#">News</a></li>
                             <li><a href="#">CONTACT</a></li>
                         </ul>
                     </div>

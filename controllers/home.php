@@ -36,6 +36,12 @@ class home extends controller
 			redirect('?c=home');
 		} else {
 			$data['recordGaleri'] = controller::select('galeri');
+			$data['recordFotoBiodata'] = controller::select('biodata', ['tipe_biodata' => 'foto']);
+			$data['recordBiodata'] = controller::query('SELECT * FROM biodata WHERE NOT tipe_biodata="foto"');
+			$data['recordAnggota'] = controller::select('anggota');
+			$data['recordPengalaman'] = controller::query('SELECT * FROM anggota_pengalaman AS ap, anggota AS an WHERE ap.id_anggota=an.id_anggota ORDER BY ap.sampai_tahun_pengalaman');
+			$data['recordKontak'] = controller::select('kontak')->fetch_object();
+			$data['recordSosial'] = controller::select('anggota_sosial');
 			controller::loadView('home_v', $data);
 		}
 	}		

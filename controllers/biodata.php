@@ -57,7 +57,7 @@ class biodata extends controller
 					'type' => 'red',
 					'value' => 'No direct access.',
 				];
-				redirect('?c=city');
+				redirect('?c=biodata');
 			} else {
 				if (isset($_POST['submit'])) {
 					$tipe = $_POST['tipe'];
@@ -120,6 +120,36 @@ class biodata extends controller
 					controller::loadView('biodata_edit_v', $data);
 					controller::loadView('_footer', $data);
 				}
+			}
+		}
+	}
+
+	public function delete($value='')
+	{
+		if (!isset($_SESSION['logged_in'])) {
+			$_SESSION['alert'] = [
+				'type' => 'red',
+				'value' => 'No direct access.',
+			];
+			redirect();
+		} else {
+			if (!isset($_GET['i'])) {
+				$_SESSION['alert'] = [
+					'type' => 'red',
+					'value' => 'No direct access.',
+				];
+				redirect('?c=biodata');
+			} else {
+				$idTransportation = $_GET['i'];
+				$where = [
+					'id_biodata' => $idTransportation,
+				];
+				controller::deleteRecord('biodata', $where);
+				$_SESSION['alert'] = [
+					'type' => 'Green',
+					'value' => 'Menghapus biodata sukses.',
+				];
+				redirect('?c=biodata');
 			}
 		}
 	}

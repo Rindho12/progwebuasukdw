@@ -35,7 +35,7 @@ class keahlian extends controller
 					$insert = [
 						'id_anggota' => $_SESSION['logged_in']['id'],
 						'nama_keahlian' => $nama,
-						'presentase_keahlian' => $presentase,
+						'persentase_keahlian' => $presentase,
 					];
 					controller::insert('anggota_keahlian', $insert);
 					$_SESSION['alert'] = [

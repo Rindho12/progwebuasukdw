@@ -26,7 +26,7 @@ defined('PATH') or exit('No direct script.');
 				<tr>
 					<td><?= $no+1 ?></td>
 					<td><?= $val['nama_keahlian'] ?></td>
-                    <td><?= $val['presentase_keahlian'] ?>%</td>
+                    <td><?= $val['persentase_keahlian'] ?>%</td>
 					<td>
 						<div class="columns">
 							<a class="column btn red" onclick="return confirm('Are you sure?')" href="<?= base_url('?c=keahlian&m=delete&i='.$val['id_ak']) ?>"><span class="fa fa-trash"></span></a>

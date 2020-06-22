@@ -22,7 +22,7 @@ defined('PATH') or exit('No direct script.');
         <?php elseif ($record_biodata->tipe_biodata == "foto"): ?>
             <div class="form-input">
                 <label>Foto</label>
-                <input type="file" name="isi">
+                <input type="file" name="isi" required="required">
             </div>
         <?php elseif ($record_biodata->tipe_biodata == "panjang"): ?>
             <div class="form-input">

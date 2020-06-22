@@ -29,7 +29,7 @@ class kontak extends controller
                 $insert = [
                     'teks_kontak' => $teks,
                     'alamat_kontak' => $alamat,
-                    'nomor_kontak' => $nomor,
+                    'nomor_kontak' => $telepon,
                     'email_kontak' => $email,
                 ];
                 controller::update('kontak', $insert, ['id_kontak' => '1']);

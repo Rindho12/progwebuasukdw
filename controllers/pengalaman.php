@@ -37,13 +37,13 @@ class pengalaman extends controller
 				} else {
 					$insert = [
 						'id_anggota' => $_SESSION['logged_in']['id'],
-						'nama_keahlian' => $nama,
-						'dari_tahun_keahlian' => $dari,
-						'sampai_tahun_keahlian' => $sampai,
-						'tempat_keahlian' => $tempat,
-						'teks_keahlian' => $deskripsi,
+						'nama_pengalaman' => $nama,
+						'dari_tahun_pengalaman' => $dari,
+						'sampai_tahun_pengalaman' => $sampai,
+						'tempat_pengalaman' => $tempat,
+						'teks_pengalaman' => $deskripsi,
 					];
-					controller::insert('anggota_keahlian', $insert);
+					controller::insert('anggota_pengalaman', $insert);
 					$_SESSION['alert'] = [
 						'type' => 'Green',
 						'value' => 'Pengalaman berhasil ditambahkan.',
