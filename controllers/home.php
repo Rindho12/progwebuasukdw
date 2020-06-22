@@ -39,4 +39,5 @@ class home extends controller
 			controller::loadView('home_v', $data);
 		}
 	}
+}
 ?>
