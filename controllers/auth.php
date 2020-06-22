@@ -34,6 +34,7 @@ class auth extends controller
 				} else {
 					$record = $record->fetch_object();
 					$_SESSION['logged_in'] = [
+						'id' => $record->id_anggota,
 						'nim' => $record->nim_anggota,
 						'nama' => $record->nama_anggota,
 					];

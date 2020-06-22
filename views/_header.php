@@ -17,7 +17,7 @@ defined('PATH') or exit('No direct script.');
 	<div id="overlay"></div>
 	<aside class="columns multiline top">
 		<div class="column brand">
-			<h1><span class="fa fa-money"></span> Ramirez</h1>
+			<h1>Hello, <?= explode(" ", $_SESSION['logged_in']['nama'])[0] ?></h1>
 		</div>
 		<ul class="column">
 			<li><p>Umum</p></li>
@@ -27,9 +27,9 @@ defined('PATH') or exit('No direct script.');
 			<li><a <?= ($title == 'Kontak') ? 'class="active"' : '' ?> href="<?= base_url('?c=kontak') ?>"><span class="fa fa-phone"></span> Kontak</a></li>
 			<li><a <?= ($title == 'Pesan') ? 'class="active"' : '' ?> href="<?= base_url('?c=pesan') ?>"><span class="fa fa-quote-left"></span> Pesan</a></li>
 			<li><p>Anggota</p></li>
-			<li><a <?= ($title == 'Pesan') ? 'class="active"' : '' ?> href="<?= base_url('?c=pesan') ?>"><span class="fa fa-quote-left"></span> Media Sosial</a></li>
-			<li><a <?= ($title == 'Pesan') ? 'class="active"' : '' ?> href="<?= base_url('?c=pesan') ?>"><span class="fa fa-quote-left"></span> Pesan</a></li>
-			<li><a <?= ($title == 'Pesan') ? 'class="active"' : '' ?> href="<?= base_url('?c=pesan') ?>"><span class="fa fa-quote-left"></span> Pesan</a></li>
+			<li><a <?= ($title == 'Medsos') ? 'class="active"' : '' ?> href="<?= base_url('?c=medsos') ?>"><span class="fa fa-facebook"></span> Media Sosial</a></li>
+			<li><a <?= ($title == 'Keahlian') ? 'class="active"' : '' ?> href="<?= base_url('?c=keahlian') ?>"><span class="fa fa-grav"></span> Keahlian</a></li>
+			<li><a <?= ($title == 'Pengalaman') ? 'class="active"' : '' ?> href="<?= base_url('?c=pengalaman') ?>"><span class="fa fa-address-card"></span> Pengalaman</a></li>
 			<li><a href="<?= base_url('?c=auth&m=logout') ?>"><span class="fa fa-sign-out"></span> Logout</a></li>
 		</ul>
 	</aside>
