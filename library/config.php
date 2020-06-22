@@ -10,7 +10,7 @@ define('BASE_CONTROLLER', 'home');
 
 function base_url($value='')
 {
-	$base_url = 'http://localhost/project_uas/';
+	$base_url = 'http://localhost/progweb_uas/';
 	return $base_url.$value;
 }
 
