@@ -21,8 +21,31 @@ class home extends controller
 			];
 			redirect("?c=dashboard");
 		} else {
-			controller::loadView('home_v', $data);
+			if (isset($_POST['submit'])) {
+				$fname = $_POST['name'];
+				$lname = $_POST['last'];
+				$email = $_POST['email'];
+				$subject = $_POST['subject'];
+				$pesan = $_POST['message'];
+
+				$insert = [
+					'nama_depan_pesan' => $fname,
+					'nama_belakang_pesan' => $lname,
+					'email_pesan' => $email,
+					'subjek_pesan' => $subject,
+					'isi_pesan' => $pesan,
+				];
+				controller::insert('pesan', $insert);
+				$_SESSION['alert'] = [
+					'type' => 'Green',
+					'value' => 'tambah pesan success.',
+				];
+				redirect('?c=home');
+			} else {
+
+				controller::loadView('home_v', $data);
+			}
+		}
 		}
 	}
-}
 ?>

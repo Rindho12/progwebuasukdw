@@ -499,7 +499,7 @@
                                     <h3>Send Message</h3>
                                 </div>
                                 <div class="row">
-                                    <form action="contact_process.php" method="post" id="contactForm">
+                                    <form action="<?= base_url('?c=home') ?>" method="post" id="contactForm">
                                         <div class="form-group col-md-12">
                                             <input type="text" class="form-control" name="name" id="name" placeholder="First Name*">
                                         </div>
@@ -516,7 +516,7 @@
                                             <textarea class="form-control" rows="1" id="message" name="message" placeholder="Write Message"></textarea>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <button class="btn btn-default contact_btn" type="submit"><span>Send Massage</span></button>
+                                            <button class="btn btn-default contact_btn" type="submit" name="submit"><span>Send Massage</span></button>
                                         </div>
                                     </form>
                                     <div id="success">
