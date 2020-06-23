@@ -30,32 +30,42 @@ class galeri extends controller
 				$target_file = $target_dir.$_FILES["foto"]["name"];
 				$uploadOk = 1;
 				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-				if (file_exists($target_file)) {
-				  echo "maaf file sudah ada";
-				  $uploadOk = 0;
+				
+				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+					$_SESSION['alert'] = [
+						'type' => 'Red',
+						'value' => 'Ekstensi upload file gagal.',
+					];
+					redirect('?c=galeri');
 				}
 
-				if ($uploadOk == 0) {
-  					echo "file gagal di upload";
-				} else {
-					if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-					    $insert = [
+				if (file_exists($target_file)) {
+					$_SESSION['alert'] = [
+						'type' => 'Red',
+						'value' => 'Nama file sudah ada.',
+					];
+					redirect('?c=galeri');
+				}
+
+				if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
+					$insert = [
 						'judul_galeri' => $judul,
 						'path_galeri' => $foto,
 						'kategori_galeri' => $kategori,
 					];
-					controller::insert('galeri', $insert);
+				} else {
 					$_SESSION['alert'] = [
-						'type' => 'Green',
-						'value' => 'Adding galeri success.',
+						'type' => 'Red',
+						'value' => 'File gagal upload.',
 					];
 					redirect('?c=galeri');
-					} else {
-					    echo "ada masalah upload";
-					}
-					
-				} 
+				}
+				controller::insert('galeri', $insert);
+				$_SESSION['alert'] = [
+					'type' => 'Green',
+					'value' => 'Adding galeri success.',
+				];
+				redirect('?c=galeri');
 			
 			} else{
 				$data['recordGaleri'] = controller::select('galeri');
